@@ -9,13 +9,25 @@ GAME RULES:
 
 /* Game Init Variables */
 
-let scores, roundScore, activePlayer, dice;
+let scores, roundScore, activePlayer;
 scores = [0, 0];
 roundScore = 0;
-activePlayer = 0;
-
-dice = Math.floor(Math.random() * 6) + 1;
+activePlayer = 1;
 
 /* SELECT THE DOM */
+document.querySelector(".dice").style.display = "none";
 
-document.querySelector("#current-" + activePlayer ).textContent = dice;
+document.getElementById("score-0").textContent = "0";
+document.getElementById("score-1").textContent = "0";
+document.getElementById("current-0").textContent = "0";
+document.getElementById("current-1").textContent = "0";
+
+document.querySelector(".btn-roll").addEventListener("click", () => {
+  // 1. RANDOM NUMBER
+  let dice = Math.floor(Math.random() * 6) + 1;
+  //2. DISPLAY THE RESULT
+  let diceDom = document.querySelector(".dice");
+  diceDom.style.display = "block";
+  diceDom.src = "dice-" + dice + ".png";
+  //3. UPDATE THE ROUND SCORE IF NOT == 1
+});
